@@ -10,61 +10,47 @@
 </head>
 <body>
 
-    <header class="top">
-        <div class="brand">
-            <span class="logo">UseBlocky</span>
-            <span class="net">Ethereum</span>
-        </div>
+<header class="top">
+    <div class="brand">
+        <span class="logo">UseBlocky</span>
+        <span class="net">Ethereum</span>
+    </div>
 
-        <button class="conn" id="connectButton">
-            Connect
-        </button>
-    </header>
+    <button class="conn" id="connectButton">Connect</button>
+</header>
 
-    <main class="card">
+<main class="card">
 
-        <h2>Swap</h2>
+    <h2>Swap</h2>
 
-        <div class="row">
-            <label for="fromAmount">From</label>
+    <div class="row">
+        <label for="fromAmount">From</label>
+        <input type="number" id="fromAmount"
+               value="1.5" min="0" step="any"
+               placeholder="0.00" inputmode="decimal">
+        <span class="tok">ETH</span>
+    </div>
 
-            <input
-                type="number"
-                id="fromAmount"
-                value="1.5"
-                min="0"
-                step="any"
-                placeholder="0.00"
-                inputmode="decimal"
-            >
+    <div class="row r2">
+        <label for="toAmount">To</label>
+        <input type="text" id="toAmount"
+               placeholder="Estimated amount" readonly>
+        <span class="tok">USDT</span>
+    </div>
 
-            <span class="tok">ETH</span>
-        </div>
+    <button class="go" id="swapButton">Swap</button>
 
-        <div class="row r2">
-            <label for="toAmount">To</label>
+    <div class="status" id="statusMessage"
+         role="status" aria-live="polite" hidden>
+        <strong id="statusTitle"></strong>
+        <p id="statusText"></p>
+    </div>
 
-            <input
-                type="text"
-                id="toAmount"
-                placeholder="Estimated amount"
-                readonly
-            >
+    <p class="small">
+        Network: Ethereum. Slippage 0.5%.
+    </p>
 
-            <span class="tok">USDT</span>
-        </div>
-
-        <button class="go" id="swapButton">Swap</button>
-
-        <div class="status">
-            Transaction failed: 0x4001
-        </div>
-
-        <p class="small">
-            Network: Ethereum. Slippage 0.5%.
-        </p>
-
-    </main>
+</main>
 
 </body>
 </html>

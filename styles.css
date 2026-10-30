@@ -1,0 +1,139 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    margin: 0;
+    color: #333;
+}
+
+.top {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 15px;
+    color: #555;
+    font-weight: 600;
+}
+
+.net {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Connect button */
+.conn {
+    font-size: 12px;
+    padding: 9px 14px;
+    background: #fff;
+    color: #444;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.conn:hover {
+    background: #eee;
+}
+
+/* Main card */
+.card {
+    width: 520px;
+    max-width: calc(100% - 32px);
+    margin: 30px auto;
+    background: #fff;
+    padding: 22px;
+    border-radius: 4px;
+}
+
+h2 {
+    font-size: 17px;
+    color: #444;
+    margin: 0 0 18px;
+}
+
+/* Input rows */
+.row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #fafafa;
+    margin-bottom: 10px;
+    min-height: 48px;
+    border: 1px solid #eee;
+}
+
+.r2 {
+    margin-bottom: 19px;
+}
+
+label {
+    width: 42px;
+    font-size: 12px;
+    color: #777;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+}
+
+.tok {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Swap button */
+.go {
+    width: 100%;
+    min-height: 46px;
+    background: #625bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.go:hover {
+    background: #5149e8;
+}
+
+.go:disabled {
+    background: #aaa7cc;
+    cursor: not-allowed;
+}
+
+/* Status */
+.status {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #c0392b;
+}
+
+.small {
+    font-size: 11px;
+    color: #777;
+    margin-top: 16px;
+}

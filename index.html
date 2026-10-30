@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UseBlocky - Swap</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="top">
+        <div class="brand">
+            <span class="logo">UseBlocky</span>
+            <span class="net">Ethereum</span>
+        </div>
+
+        <button class="conn" id="connectButton">
+            Connect
+        </button>
+    </header>
+
+    <main class="card">
+
+        <h2>Swap</h2>
+
+        <div class="row">
+            <label>from</label>
+            <input type="text" value="1.5">
+            <span class="tok">ETH</span>
+        </div>
+
+        <div class="row r2">
+            <label>to</label>
+            <input type="text" value="">
+            <span class="tok">USDT</span>
+        </div>
+
+        <button class="go">Swap</button>
+
+        <div class="status">
+            Transaction failed: 0x4001
+        </div>
+
+        <p class="small">
+            Network: Ethereum. Slippage 0.5%.
+        </p>
+
+    </main>
+
+</body>
+</html>

@@ -115,6 +115,16 @@ input[readonly] {
     margin-left: 10px;
 }
 
+.field-error {
+    color: #c0392b;
+    font-size: 12px;
+    margin: -5px 0 10px;
+}
+
+.field-error:empty {
+    display: none;
+}
+
 .go {
     width: 100%;
     min-height: 46px;

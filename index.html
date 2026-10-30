@@ -15,21 +15,22 @@
         <span class="logo">UseBlocky</span>
         <span class="net">Ethereum</span>
     </div>
-
     <button class="conn" id="connectButton">Connect</button>
 </header>
 
 <main class="card">
-
     <h2>Swap</h2>
 
     <div class="row">
         <label for="fromAmount">From</label>
         <input type="number" id="fromAmount"
                value="1.5" min="0" step="any"
-               placeholder="0.00" inputmode="decimal">
+               placeholder="0.00" inputmode="decimal"
+               aria-describedby="fromError">
         <span class="tok">ETH</span>
     </div>
+
+    <p class="field-error" id="fromError"></p>
 
     <div class="row r2">
         <label for="toAmount">To</label>
@@ -46,10 +47,7 @@
         <p id="statusText"></p>
     </div>
 
-    <p class="small">
-        Network: Ethereum. Slippage 0.5%.
-    </p>
-
+    <p class="small">Network: Ethereum. Slippage 0.5%.</p>
 </main>
 
 </body>

@@ -26,6 +26,7 @@
         <input type="number" id="fromAmount"
                value="1.5" min="0" step="any"
                placeholder="0.00" inputmode="decimal"
+               aria-label="Amount of ETH to swap"
                aria-describedby="fromError">
         <span class="tok">ETH</span>
     </div>
@@ -35,7 +36,9 @@
     <div class="row r2">
         <label for="toAmount">To</label>
         <input type="text" id="toAmount"
-               placeholder="Estimated amount" readonly>
+               placeholder="Estimated amount"
+               aria-label="Estimated USDT received"
+               readonly>
         <span class="tok">USDT</span>
     </div>
 

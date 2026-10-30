@@ -36,6 +36,7 @@ body {
 
 .conn {
     font-size: 12px;
+    min-height: 40px;
     padding: 9px 14px;
     background: #fff;
     color: #444;
@@ -137,12 +138,13 @@ input[readonly] {
     cursor: pointer;
 }
 
-.go:hover {
+.go:hover:not(:disabled) {
     background: #5149e8;
 }
 
-.go:disabled {
-    background: #aaa7cc;
+.go:disabled,
+.conn:disabled {
+    opacity: 0.6;
     cursor: not-allowed;
 }
 
@@ -152,6 +154,7 @@ input[readonly] {
     border-radius: 4px;
     font-size: 12px;
     line-height: 1.5;
+    overflow-wrap: anywhere;
 }
 
 .status p {
@@ -176,12 +179,6 @@ input[readonly] {
     border: 1px solid #dedcff;
 }
 
-.small {
-    font-size: 11px;
-    color: #777;
-    margin-top: 16px;
-}
-
 .network-info {
     margin-top: 18px;
     padding-top: 12px;
@@ -204,4 +201,66 @@ input[readonly] {
 .network-row strong {
     color: #444;
     font-weight: 500;
+}
+
+.small {
+    font-size: 11px;
+    color: #777;
+    margin-top: 16px;
+}
+
+/* Keyboard focus accessibility */
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #625bff;
+    outline-offset: 3px;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 480px) {
+
+    .top {
+        padding: 12px;
+    }
+
+    .brand {
+        gap: 14px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: calc(100% - 24px);
+        margin: 20px auto;
+        padding: 16px;
+    }
+
+    .row {
+        min-height: 50px;
+        padding: 10px 8px;
+    }
+
+    label {
+        width: 38px;
+        font-size: 11px;
+    }
+
+    input {
+        font-size: 15px;
+    }
+
+    .tok {
+        font-size: 12px;
+    }
+
+    .go {
+        min-height: 48px;
+    }
+
+    .conn {
+        min-height: 40px;
+    }
+
+    .network-row {
+        font-size: 11px;
+    }
 }

@@ -8,7 +8,11 @@ const statusMessage = document.getElementById("statusMessage");
 const statusTitle = document.getElementById("statusTitle");
 const statusText = document.getElementById("statusText");
 
+const networkName = document.getElementById("networkName");
+const networkDetail = document.getElementById("networkDetail");
+
 let walletAddress = null;
+let currentChainId = null;
 
 function showStatus(type, title, message) {
     statusMessage.hidden = false;
@@ -31,13 +35,34 @@ function validateAmount() {
     }
 
     if (!Number.isFinite(amount) || amount <= 0) {
-        fromError.textContent =
-            "Enter an amount greater than zero.";
+        fromError.textContent = "Enter an amount greater than zero.";
         return false;
     }
 
     fromError.textContent = "";
     return true;
+}
+
+function getNetworkName(chainId) {
+    const networks = {
+        "0x1": "Ethereum",
+        "0xaa36a7": "Sepolia",
+        "0x89": "Polygon",
+        "0xa4b1": "Arbitrum",
+        "0xa": "Optimism",
+        "0x2105": "Base"
+    };
+
+    return networks[chainId] || "Unknown Network";
+}
+
+function updateNetwork(chainId) {
+    currentChainId = chainId;
+
+    const name = getNetworkName(chainId);
+
+    networkName.textContent = name;
+    networkDetail.textContent = name;
 }
 
 fromAmount.addEventListener("input", () => {
@@ -64,11 +89,17 @@ async function connectWallet() {
             method: "eth_requestAccounts"
         });
 
-        if (!accounts || accounts.length === 0) {
+        if (!accounts.length) {
             throw new Error("No wallet account found.");
         }
 
         walletAddress = accounts[0];
+
+        const chainId = await window.ethereum.request({
+            method: "eth_chainId"
+        });
+
+        updateNetwork(chainId);
 
         connectButton.textContent =
             walletAddress.slice(0, 6) +
@@ -87,7 +118,7 @@ async function connectWallet() {
             showStatus(
                 "error",
                 "Connection rejected",
-                "You rejected the connection request. You can try again."
+                "You rejected the connection request."
             );
         } else {
             showStatus(
@@ -113,37 +144,42 @@ swapButton.addEventListener("click", () => {
     clearStatus();
 
     if (!validateAmount()) {
-        showStatus(
-            "error",
-            "Invalid amount",
-            "Please correct the amount before continuing."
-        );
+        showStatus("error", "Invalid amount",
+            "Please correct the amount before continuing.");
         return;
     }
 
     if (!walletAddress) {
-        showStatus(
-            "info",
-            "Connect your wallet",
-            "Connect your wallet before starting a swap."
-        );
+        showStatus("info", "Connect your wallet",
+            "Connect your wallet before starting a swap.");
         return;
     }
 
-    showStatus(
-        "info",
-        "Swap unavailable",
-        "Your wallet is connected, but a swap quote and transaction service have not been integrated. No transaction was submitted."
-    );
+    showStatus("info", "Swap unavailable",
+        "A real swap quote and transaction service have not been integrated. No transaction was submitted.");
 });
 
 if (window.ethereum) {
+
+    window.ethereum.on("chainChanged", (chainId) => {
+        updateNetwork(chainId);
+
+        showStatus(
+            "info",
+            "Network changed",
+            "Your wallet network changed. Please verify it before continuing."
+        );
+    });
+
     window.ethereum.on("accountsChanged", (accounts) => {
 
         walletAddress = accounts[0] || null;
 
         if (!walletAddress) {
             connectButton.textContent = "Connect Wallet";
+            networkName.textContent = "Not connected";
+            networkDetail.textContent = "Not connected";
+
             showStatus(
                 "info",
                 "Wallet disconnected",

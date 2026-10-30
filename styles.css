@@ -181,3 +181,27 @@ input[readonly] {
     color: #777;
     margin-top: 16px;
 }
+
+.network-info {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+}
+
+.network-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.network-row span {
+    color: #777;
+}
+
+.network-row strong {
+    color: #444;
+    font-weight: 500;
+}

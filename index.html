@@ -13,7 +13,7 @@
 <header class="top">
     <div class="brand">
         <span class="logo">UseBlocky</span>
-        <span class="net">Ethereum</span>
+        <span class="net" id="networkName">Not connected</span>
     </div>
     <button class="conn" id="connectButton">Connect Wallet</button>
 </header>
@@ -47,7 +47,17 @@
         <p id="statusText"></p>
     </div>
 
-    <p class="small">Network: Ethereum. Slippage 0.5%.</p>
+    <div class="network-info">
+        <div class="network-row">
+            <span>Network</span>
+            <strong id="networkDetail">Not connected</strong>
+        </div>
+
+        <div class="network-row">
+            <span>Slippage tolerance</span>
+            <strong>0.5%</strong>
+        </div>
+    </div>
 </main>
 
 </body>

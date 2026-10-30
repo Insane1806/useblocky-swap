@@ -26,18 +26,35 @@
         <h2>Swap</h2>
 
         <div class="row">
-            <label>from</label>
-            <input type="text" value="1.5">
+            <label for="fromAmount">From</label>
+
+            <input
+                type="number"
+                id="fromAmount"
+                value="1.5"
+                min="0"
+                step="any"
+                placeholder="0.00"
+                inputmode="decimal"
+            >
+
             <span class="tok">ETH</span>
         </div>
 
         <div class="row r2">
-            <label>to</label>
-            <input type="text" value="">
+            <label for="toAmount">To</label>
+
+            <input
+                type="text"
+                id="toAmount"
+                placeholder="Estimated amount"
+                readonly
+            >
+
             <span class="tok">USDT</span>
         </div>
 
-        <button class="go">Swap</button>
+        <button class="go" id="swapButton">Swap</button>
 
         <div class="status">
             Transaction failed: 0x4001

@@ -34,7 +34,6 @@ body {
     color: #777;
 }
 
-/* Connect button */
 .conn {
     font-size: 12px;
     padding: 9px 14px;
@@ -43,14 +42,12 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.2s ease;
 }
 
 .conn:hover {
     background: #eee;
 }
 
-/* Main card */
 .card {
     width: 520px;
     max-width: calc(100% - 32px);
@@ -66,15 +63,19 @@ h2 {
     margin: 0 0 18px;
 }
 
-/* Input rows */
 .row {
     display: flex;
     align-items: center;
+    min-height: 50px;
     padding: 10px;
     background: #fafafa;
-    margin-bottom: 10px;
-    min-height: 48px;
     border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.row:focus-within {
+    border-color: #625bff;
 }
 
 .r2 {
@@ -83,8 +84,9 @@ h2 {
 
 label {
     width: 42px;
+    flex-shrink: 0;
     font-size: 12px;
-    color: #777;
+    color: #666;
 }
 
 input {
@@ -94,15 +96,25 @@ input {
     outline: none;
     background: transparent;
     font-size: 16px;
+    color: #222;
+    font-family: inherit;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+input[readonly] {
+    color: #555;
 }
 
 .tok {
     font-size: 13px;
     font-weight: 600;
     color: #555;
+    margin-left: 10px;
 }
 
-/* Swap button */
 .go {
     width: 100%;
     min-height: 46px;
@@ -113,7 +125,6 @@ input {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
 }
 
 .go:hover {
@@ -125,7 +136,6 @@ input {
     cursor: not-allowed;
 }
 
-/* Status */
 .status {
     margin-top: 12px;
     font-size: 12px;
